@@ -129,7 +129,10 @@ def get_cur_L():
     #out("null type: %s\n" % str(null().type))
     if mL == null():
         return mL
-    return gcref(G(mL)['cur_L'])['th'].address
+    try:
+        return gcref(G(mL)['cur_L'])['th'].address
+    except:
+	return mL
 
 def gcval(o):
     return gcref(o['gcr'])
